@@ -5,11 +5,11 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
+        <q-toolbar-title class="gold--text">
           <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+            <img src="../assets/logo3.png" >
           </q-avatar>
-          Title
+          Insof.uz
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -54,6 +54,9 @@ export default {
 </script>
 <style scoped>
 .bg-color{
-  background: linear-gradient(89.97deg, #FE06E5 -14.25%, #33042E 56.99%);
+  background: linear-gradient(89.97deg, #33042E 52.52%, #FE06E5 110.06%);
+}
+.gold--text{
+  color: rgb(248, 204, 61);
 }
 </style>
