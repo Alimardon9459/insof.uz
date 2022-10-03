@@ -140,8 +140,8 @@ module.exports = configure(function (ctx) {
       
 
       manifest: {
-        name: `Insof mobile`,
-        short_name: `Insof mobile`,
+        name: `Insof`,
+        short_name: `Insof`,
         description: `Barcha narxlar insof bilan!`,
         display: 'standalone',
         orientation: 'portrait',

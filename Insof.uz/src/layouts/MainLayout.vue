@@ -3,6 +3,10 @@
 
     <q-header reveal class="bg-color text-white">
       <q-toolbar>
+        sall
+      </q-toolbar>
+      <q-separator></q-separator>
+      <q-toolbar >
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title class="gold--text">
@@ -11,8 +15,13 @@
           </q-avatar>
           Insof.uz
         </q-toolbar-title>
+        <q-spacer></q-spacer>
+        <div>
+          <a href="">Mahsulotlar</a>
+        </div>
       </q-toolbar>
     </q-header>
+
 
     <q-drawer  v-model="leftDrawerOpen" side="left" bordered>
       <!-- drawer content -->
