@@ -1,32 +1,23 @@
 <template>
   <div class="q-mb-xl q-mt-md border">
-    <q-carousel arrows animated autoplay v-model="slide" height="400px" class="rounded-borders">
+    <q-carousel arrows animated navigation swipeable autoplay v-model="slide" height="400px" class="rounded-borders">
       <q-carousel-slide
         name="first"
         img-src="https://cdn.quasar.dev/img/mountains.jpg"
       >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">First stop</div>
-          <div class="text-subtitle1">Mountains</div>
-        </div>
+      
       </q-carousel-slide>
       <q-carousel-slide
         name="second"
         img-src="https://cdn.quasar.dev/img/parallax1.jpg"
       >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Second stop</div>
-          <div class="text-subtitle1">Famous City</div>
-        </div>
+       
       </q-carousel-slide>
       <q-carousel-slide
         name="third"
         img-src="https://cdn.quasar.dev/img/parallax2.jpg"
       >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Third stop</div>
-          <div class="text-subtitle1">Famous Bridge</div>
-        </div>
+       
       </q-carousel-slide>
     </q-carousel>
   </div>
@@ -50,4 +41,6 @@ export default {
     background-color: rgba(0, 0, 0, .3)
 .border
     border-radius: 10%
+.q-btn.q-icon
+    font-size: 1em
 </style>
