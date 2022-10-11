@@ -2,10 +2,8 @@
   <q-layout view="hhh lpR lff">
     <q-header reveal class="bg-color text-white">
       <q-bar>
-        <q-space/>
-        <div>
-          +99895-024-70-72
-        </div>
+        <q-space />
+        <div>+99895-024-70-72</div>
       </q-bar>
       <q-separator></q-separator>
       <q-toolbar>
@@ -17,10 +15,8 @@
           </q-avatar>
           Insof.uz
         </q-toolbar-title>
-        
-        <a href="new">
-          Mahsulotlar
-        </a>
+
+        <a href="new"> Mahsulotlar </a>
       </q-toolbar>
     </q-header>
 
@@ -68,7 +64,7 @@ export default {
 .gold--text {
   color: rgb(248, 204, 61);
 }
-.q-page-container{
+.q-page-container {
   width: 95%;
   margin: 0 auto;
 }
