@@ -2,6 +2,7 @@
   <q-page class="">
     <Carusel/>
     <CategoryCards/>
+    <Card/>
   </q-page>
 </template>
 
@@ -9,11 +10,13 @@
 import { defineComponent } from 'vue'
 import Carusel from '../components/Carusel'
 import CategoryCards from 'src/components/Category-cards'
+import Card from 'src/components/Card'
 export default defineComponent({
   name: 'IndexPage',
   components:{
     Carusel,
-    CategoryCards
+    CategoryCards,
+    Card
 }
 })
 </script>
