@@ -222,7 +222,6 @@ export default {
     border: 1px solid #fffff
     border-radius: 10px
     margin: 20px 20px 20px 0
-    flex-grow: 1
 
 .product__main
     width: 90%
