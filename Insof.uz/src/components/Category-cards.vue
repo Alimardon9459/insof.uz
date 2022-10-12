@@ -42,20 +42,6 @@
         </div>
       </a>
     </div>
-    <div class="card">
-      <a href="#" class="card__link">
-        <div class="card__main">
-          <q-img
-            src="https://olcha.uz/image/380x132/discount/KK/Ko/dP/1663671523.png"
-            class="img"
-          >
-            <div class="absolute-full text-subtitle2 flex flex-center">
-              Title
-            </div>
-          </q-img>
-        </div>
-      </a>
-    </div>
   </div>
 </template>
 <script >
@@ -74,7 +60,7 @@ export default defineComponent({
     align-items: flex-start
 .card
     width: 350px
-    margin: 10px 40px
+    margin: 10px
     flex-grow: 1
 
 .q-img

@@ -1,7 +1,13 @@
 <template>
   <q-page class="">
     <Carusel/>
+    <div class="text-h4">
+      Catgoriyalar
+    </div>
     <CategoryCards/>
+    <div class="text-h4 q-mt-xl">
+      Chegirmalar
+    </div>
     <Card/>
   </q-page>
 </template>
