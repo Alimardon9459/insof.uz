@@ -1,11 +1,11 @@
 <template>
   <q-page class="">
     <Carusel/>
-    <div class="text-h4">
+    <div class="heading text-h4 ">
       Catgoriyalar
     </div>
     <CategoryCards/>
-    <div class="text-h4 q-mt-xl">
+    <div class="heading text-h4 q-mt-xl">
       Chegirmalar
     </div>
     <Card/>
@@ -26,6 +26,8 @@ export default defineComponent({
 }
 })
 </script>
-<style  scoped>
+<style lang="sass"  scoped>
+.heading
+  color: #8f1182
 
 </style>
