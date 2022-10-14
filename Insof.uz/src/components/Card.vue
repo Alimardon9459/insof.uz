@@ -212,6 +212,8 @@ export default {
 </script>
 <style lang="sass" scoped>
 .wrapper
+    width: 100%
+    margin: 0 auto
     display: flex
     justify-content: space-between
     align-items: center
@@ -221,7 +223,8 @@ export default {
     height: 520px
     border: 1px solid #fffff
     border-radius: 10px
-    margin: 20px 20px 20px 0
+    margin: 20px auto
+    // margin: 20px 20px 20px 0
 
 .product__main
     width: 90%

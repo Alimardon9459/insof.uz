@@ -6,18 +6,21 @@
         <div>+99895-024-70-72</div>
       </q-bar>
       <q-separator></q-separator>
-      <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title class="gold--text">
-          <q-avatar>
-            <img src="../assets/logo3.png" />
+      <div class="wrapper row no-wrap justify-between items-center ">
+
+        <div class="gold--text ">
+          <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+
+          <q-avatar class="q-ml-md">
+            <img src="../assets/logo3.png" width="100x"/>
           </q-avatar>
           Insof.uz
-        </q-toolbar-title>
+        </div>
+        <!-- <input type="text" class="search-input" placeholder="Qidirish"> -->
 
-        <a href="new"> Mahsulotlar </a>
-      </q-toolbar>
+        <a href="new" class="text-white"> Mahsulotlar </a>
+      </div>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" side="left" bordered>
@@ -63,10 +66,29 @@ export default {
 }
 .gold--text {
   color: rgb(248, 204, 61);
+  font-size: 18px;
 }
 .q-page-container {
   width: 95%;
   margin: 0 auto;
+}
+.wrapper{
+  width: 97%;
+  margin: 0 auto;
+}
+.search-input{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+
+}
+::placeholder{
+  padding-left: 10px;
+  font-style: 19px;
+}
+.search-input:focus {
+  outline:none;
 }
 /* .q-layout{
   background: linear-gradient(89.97deg, rgba(254, 6, 229, 0.45) 14.19%, rgba(51, 4, 46, 0.61) 110.06%);
