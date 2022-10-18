@@ -12,8 +12,8 @@
         <div class="gold--text ">
           <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-          <q-avatar class="q-ml-md">
-            <img src="../assets/logo3.png" width="100x"/>
+          <q-avatar class=" q-ma-sm" size="40px">
+            <img src="../assets/logo3.png" width="100"/>
           </q-avatar>
           Insof.uz
         </div>
