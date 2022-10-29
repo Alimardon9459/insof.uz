@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <!--  -->
     <div class="product shadow-3"  >
       <div class="product__main">
         <div class="discount">
@@ -30,87 +31,7 @@
         </div>
         <div class="product__spacer">
           <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
-        </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
-        </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
           </div>
         </div>
         <div class="product__spacer">
@@ -200,9 +121,89 @@
         </div>
       </div>
     </div>
-    
-   
-    
+    <div class="product shadow-3" >
+      <div class="product__main">
+        <div class="discount">
+            <div class="discount__mark">
+                Chegirma
+            </div>
+            <div class="discount__persent">
+                17%
+            </div>
+        </div>
+          <a href="#" class="product__link">
+            <img
+              class="img"
+              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
+              width="200"
+              height="200"
+              alt="title"
+            />
+          </a>
+        <div class="product__spacer">
+          <div class="product__title text-h5">Smartphone</div>
+        </div>
+        <div class="product__spacer">
+          <div class="product__prices">
+            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
+            <div class="product__price with-discount">450.000 so'm</div>
+          </div>
+        </div>
+        <div class="product__spacer">
+          <div class="product__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </div>
+        </div>
+        <div class="product__spacer">
+          <div class="button">
+            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product shadow-3" >
+      <div class="product__main">
+        <div class="discount">
+            <div class="discount__mark">
+                Chegirma
+            </div>
+            <div class="discount__persent">
+                17%
+            </div>
+        </div>
+          <a href="#" class="product__link">
+            <img
+              class="img"
+              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
+              width="200"
+              height="200"
+              alt="title"
+            />
+          </a>
+        <div class="product__spacer">
+          <div class="product__title text-h5">Smartphone</div>
+        </div>
+        <div class="product__spacer">
+          <div class="product__prices">
+            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
+            <div class="product__price with-discount">450.000 so'm</div>
+          </div>
+        </div>
+        <div class="product__spacer">
+          <div class="product__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </div>
+        </div>
+        <div class="product__spacer">
+          <div class="button">
+            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
 </template>
 <script>
@@ -275,7 +276,7 @@ export default {
 .button
     width: 80%
     margin: 0 auto
-    margin-bottom: 20px 
+    margin-bottom: 20px
     display: flex
     justify-content: center
 .btn
