@@ -5,8 +5,8 @@
     </div>
 </template>
 <script>
-import BasketInfo from 'src/components/BasketCmponets/BasketInfo.vue';
-import BasketProducts from 'src/components/BasketCmponets/BasketProducts.vue';
+import BasketInfo from 'src/components/BasketComponets/BasketInfo.vue';
+import BasketProducts from 'src/components/BasketComponets/BasketProducts.vue';
 
 export default {
     components: { 

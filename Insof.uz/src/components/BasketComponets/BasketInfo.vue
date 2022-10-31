@@ -33,7 +33,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style scoped>
@@ -69,7 +69,7 @@ export default {
     @media screen and (max-width:500px) {
         .info__body{
             
-            height: 320px;
+            height: 340px;
             padding: 20px;
            
         }
