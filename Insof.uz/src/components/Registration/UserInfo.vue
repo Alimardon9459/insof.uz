@@ -1,11 +1,11 @@
 <template >
-    <div>
+    <div class="mb-30px">
         <div class="register">
             <p class="register__title">Персональные данные</p>
             <q-input outlined v-model="fname" label="Ismingiz" counter  maxlength='30' class=" mt-10px" />
             <q-input outlined v-model="tel_number" label="Raqamingiz" counter  maxlength='11' class=" mt-10px" />
             <q-input outlined v-model="adress" label="Manzilingiz" counter  maxlength='100' class=" mt-10px" />
-            <q-input outlined v-model="comment" label="Izohingiz" counter  maxlength='50' class=" mt-10px" />
+            <q-input outlined v-model="comment" label="Izohingiz" type="textarea" counter  maxlength='150' class=" mt-10px" />
         </div>
         <div class="register__end row justify-around ">
             <q-btn class="text-white bg-blue-grey-10 mt-30px" icon="location_on" label=" Lakatsiya olish  " />
