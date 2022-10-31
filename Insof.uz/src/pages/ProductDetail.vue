@@ -1,11 +1,11 @@
 <template>
     <div>
       <div class="container">
-        <h1 class="container__title">Smartfon Xiaomi Redmi Note 11 Pro 128GB 8 GB Grey</h1>
-        <div class="container__content fit row  justify-between items-start content-start">
+        <h1 class="title">Smartfon Xiaomi Redmi Note 11 Pro 128GB 8 GB Grey</h1>
+        <div class="content  row  justify-between items-start content-start">
           <div class="card">
             <div class="card__carusel">
-              <comp-caruesel />
+              <comp-carusel />
             </div>
           </div>
           <div class="picture">
@@ -28,31 +28,31 @@
             </div>
         </div>
       </div>
-      <div class="container--2">
-          <!-- pastki cardlar uchun bu joyda component ishlat container--2 ni orniga component -->
-      </div>
+      <comp-cards/>
     </div>
   </template>
   <script>
-  import CompCaruesel from '../components/CompCaruesel.vue'
+import CompCards from '../components/CompCards.vue'
+  import CompCarusel from '../components/СompCarusel'
   export default {
-    components: { CompCaruesel },
+    components: { CompCarusel,CompCards },
 
   }
   </script>
-  <style>
+  <style scoped>
   .container {
-    height: 70vh;
+    /* height: 70vh; */
     /* background: aqua; */
   }
 
-  .container__title {
+  .title {
     font-size: 1.875rem;
+    font-weight: 560;
     line-height: 2.25rem;
     box-sizing: border-box;
   }
 
-  .container__content {
+  .content {
     width: 100%;
     height: 100%;
     /* background: rgb(229, 223, 223); */
@@ -75,12 +75,9 @@
   }
   .reklama{
     width: 360px;
-    height: 50%;
+    height: 300px;
     /* background: yellow; */
     border: 2px solid black;
-  }
-  .container--2{
-    height: 90vh;
   }
   .button__active{
     font-size: 12px;
@@ -116,7 +113,6 @@
     background: #fff;
     color: #EB1537;
     border:1px solid #EB1537;
-    padding: 9px 13px;
     cursor: pointer;
   }
   .button__active--2:hover{
@@ -125,7 +121,6 @@
     border:1px solid #12BF6C;
     padding: 7px 8px;
     cursor: pointer;
-    padding: 9px 13px;
   }
   .button__active--3:hover{
     background: #fff;
@@ -133,7 +128,6 @@
     border:1px solid #333;
     padding: 7px 8px;
     cursor: pointer;
-    padding: 9px 13px;
   }
   </style>
 
@@ -347,63 +341,3 @@
 
 
 
-<!-- <template>
-    <div class="wrapper">
-        <div class="card">
-            <div class="product">
-                <div class="product__main">
-                    <div class="product__title">
-                        Title
-                    </div>
-                    <div class="product__wrapper">
-                        <div class="img">
-                            <img src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL." alt=""
-                            width="100%"/>
-                        </div>
-
-                        <div class="product__info">
-
-                            <div class="product__prices">
-                                <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-                                <div class="product__price with-discount">450.000 so'm</div>
-                            </div>
-                            <div class="product__description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, corrupti debitis! Eius at nostrum, possimus distinctio totam quasi nisi velit, molestiae quae sit eligendi numquam quas reprehenderit facilis iste itaque?
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="resent">
-                        <Card/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-<script>
-import Card from '../components/Card'
-export default {
-    components:{
-        Card
-    },
-    setup() {
-
-    },
-}
-</script>
-<style lang="sass" scoped>
-.product__wrapper
-    width: 100%
-    display: flex
-    justify-content: space-between
-    flex-wrap: wrap
-
-.product__info
-    max-width: 500px
-    flex-grow: 1
-.resent
-    display: flex
-    flex-direction: column
-</style> -->

@@ -41,6 +41,7 @@
         </div>
       </div>
     </div>
+
     <div class="product shadow-3" >
       <div class="product__main">
         <div class="discount">
