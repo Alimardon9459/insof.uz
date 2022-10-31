@@ -28,7 +28,10 @@
             </div>
         </div>
       </div>
-      <comp-cards/>
+      <div v-if="showModal">
+        <comp-cards/>
+      </div>
+      <q-btn @click="toggleModal">adadbk</q-btn>
     </div>
   </template>
   <script>
@@ -36,7 +39,16 @@ import CompCards from '../components/CompCards.vue'
   import CompCarusel from '../components/СompCarusel'
   export default {
     components: { CompCarusel,CompCards },
-
+      data() {
+        return {
+          showModal: false
+        }
+      },
+      methods: {
+        toggleModal(){
+          this.showModal = !this.showModal
+        }
+      },
   }
   </script>
   <style scoped>

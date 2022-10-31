@@ -1,11 +1,13 @@
 <template>
-  <div >
+  <div>
+    <div v-if="showModal">
+        <comp-modal header="Hello World" @close="toggleModal" />
+     </div>
     <div class="container">
-      <comp-modal header="Hello World"/>
       <div class="title">
         O'xshash mahsulotlar
       </div>
-      <div class="catalog row" >
+      <div class="catalog row">
         <div class="product shadow-3" v-for="i in 10" :key="i">
           <div class="product__main">
             <div class="discount">
@@ -37,30 +39,29 @@
             </div>
             <div class="product__spacer">
               <div class="button row justify-center">
-                <q-btn  rounded class="btn shadow-7 mb-20px" padding="5px 40px 5px 40px">button</q-btn>
+                <q-btn  class="btn shadow-7 mb-20px" padding="5px 40px 5px 40px" @click="toggleModal">button </q-btn>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <button @click="toggleModal">bosing</button>
   </div>
 </template>
 <script>
 import CompModal from './CompModal.vue'
 export default {
   components: { CompModal },
-      setup() {
-        return {
-          showModal: false
-        }
-      },
-    methods: {
-      toggleModal(){
-        this.showModal = !this.showModal
-      }
-    },
+  data() {
+    return {
+      showModal: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
+    }
+  },
 }
 </script>
 <style scoped lang="sass">

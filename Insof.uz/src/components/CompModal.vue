@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bacdrop">
+    <div class="bacdrop" @click="closeModall ">
       <div class="modal">
           <h1>{{header}}</h1>
       </div>
@@ -9,7 +9,12 @@
 </template>
 <script>
 export default {
-  props:['header']
+  props:['header'],
+  methods: {
+   closeModall(){
+    this.$emit('close')
+   }
+  },
 }
 </script>
 <style scoped lang="sass">
@@ -24,5 +29,5 @@ export default {
   width: 80%
   height: 500px
   margin: 0 auto
-  background: red
+  background: white
 </style>
