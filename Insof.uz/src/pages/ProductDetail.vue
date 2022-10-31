@@ -1,4 +1,353 @@
 <template>
+    <div>
+      <div class="container">
+        <h1 class="container__title">Smartfon Xiaomi Redmi Note 11 Pro 128GB 8 GB Grey</h1>
+        <div class="container__content fit row  justify-between items-start content-start">
+          <div class="card">
+            <div class="card__carusel">
+              <comp-caruesel />
+            </div>
+          </div>
+          <div class="picture">
+            <div class="picture__card">
+                <p class="picture__number--active text-h4">3141 000 so'm </p>
+                <p style="color: #8a8a8a;">340 000 so'mdan/oyiga</p>
+                <p class="text-weight-bold">Mahsulot haqida qisqacha</p>
+                <p style="color: #333;">Kafolat muddati (oy): 12</p>
+                <p style="color: #8a8a8a; font-size: 0.8rem ; text-align: left;">Ta'sirchan suratga olish sifati 108 megapikselli asosiy kamera 1/1,52 dyuymli Samsung HM2 sensori bilan jihozlangan va katta 2,1 mkm pikselni ta'minlovchi 9-in-1 pikselni birlashtirish texnologiyasini qo'llab-quvvatlaydi. Ikkilamchi mahalliy ISO bilan siz past yorug'lik sharoitida ham shovqinni kamaytiradigan aniq va teksturali tasvirlarni olishingiz mumkin. Shuningdek, u 108 megapikselli tasvirlarni to‘g‘ridan-to‘g‘ri chiqarish imkonini beradi, shu bilan birga ko‘proq tafsilotlarni saqlab qoladi, bu esa yaxshiroq kompozitsiya uchun masshtablash yoki kesish uchun qulaydir.</p>
+            </div>
+            <div class="button  row  justify-between items-start content-start q-mt-lg" style="box-sizing: border-box;">
+              <button class="button__active">Savatchaga qo'shish</button>
+              <button class="button__active--2">Bo'lib to'lash</button>
+              <button class="button__active--3">Bir kilikda sotib olish</button>
+            </div>
+          </div>
+
+            <div class="reklama">
+                <!-- reklama uchun joy -->
+            </div>
+        </div>
+      </div>
+      <div class="container--2">
+          <!-- pastki cardlar uchun bu joyda component ishlat container--2 ni orniga component -->
+      </div>
+    </div>
+  </template>
+  <script>
+  import CompCaruesel from '../components/CompCaruesel.vue'
+  export default {
+    components: { CompCaruesel },
+
+  }
+  </script>
+  <style>
+  .container {
+    height: 70vh;
+    /* background: aqua; */
+  }
+
+  .container__title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    box-sizing: border-box;
+  }
+
+  .container__content {
+    width: 100%;
+    height: 100%;
+    /* background: rgb(229, 223, 223); */
+  }
+
+  .card {
+    width: 360px;
+    height: 100%;
+    /* background: red; */
+  }
+
+  .card__carusel {
+    width: 100%;
+    height: 40%;
+  }
+  .picture{
+    width: 360px;
+    height: 100%;
+    /* background: blue; */
+  }
+  .reklama{
+    width: 360px;
+    height: 50%;
+    /* background: yellow; */
+    border: 2px solid black;
+  }
+  .container--2{
+    height: 90vh;
+  }
+  .button__active{
+    font-size: 12px;
+    border-radius: 18px;
+    padding: 7px 8px;
+    border: none;
+    background: #EB1537;
+    border:1px solid #EB1537;
+    color: #fff;
+    transition:  0.5s ease;
+  }
+  .button__active--2{
+    font-size: 12px;
+    border-radius: 18px;
+    padding: 7px 8px;
+    border: none;
+    background: #12BF6C;
+    color: #fff;
+    border: 1px solid #12BF6C ;
+    transition:  0.5s ease;
+  }
+  .button__active--3{
+    font-size: 12px;
+    border-radius: 18px;
+    padding: 7px 8px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+    transition:  0.5s ease;
+  }
+  .button__active:hover{
+    background: #fff;
+    color: #EB1537;
+    border:1px solid #EB1537;
+    padding: 9px 13px;
+    cursor: pointer;
+  }
+  .button__active--2:hover{
+    background: #fff;
+    color: #12BF6C;
+    border:1px solid #12BF6C;
+    padding: 7px 8px;
+    cursor: pointer;
+    padding: 9px 13px;
+  }
+  .button__active--3:hover{
+    background: #fff;
+    color: #333;
+    border:1px solid #333;
+    padding: 7px 8px;
+    cursor: pointer;
+    padding: 9px 13px;
+  }
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <template>
+    <div class="wrapper">
+      <div class="card">
+        <div class="product">
+          <div class="product__main">
+            <div class="product__title">
+              Title
+            </div>
+            <div class="product__wrapper">
+              <div class="img">
+                <img
+                  src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
+                  alt="" width="100%" />
+              </div>
+
+              <div class="product__info">
+
+                <div class="product__prices">
+                  <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
+                  <div class="product__price with-discount">450.000 so'm</div>
+                </div>
+                <div class="product__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, corrupti debitis! Eius at nostrum,
+                  possimus distinctio totam quasi nisi velit, molestiae quae sit eligendi numquam quas reprehenderit
+                  facilis iste itaque?
+                </div>
+              </div>
+
+
+            </div>
+            <div class="resent">
+              <Card />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+  import Card from '../components/Card'
+  export default {
+    components: {
+      Card
+    },
+    setup() {
+
+    },
+  }
+  </script>
+  <style lang="sass" scoped>
+  .product__wrapper
+      width: 100%
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+
+  .product__info
+      max-width: 500px
+      flex-grow: 1
+  .resent
+      display: flex
+      flex-direction: column
+  </style> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
     <div class="wrapper">
         <div class="card">
             <div class="product">
@@ -8,12 +357,12 @@
                     </div>
                     <div class="product__wrapper">
                         <div class="img">
-                            <img src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL." alt="" 
+                            <img src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL." alt=""
                             width="100%"/>
                         </div>
 
                         <div class="product__info">
-                           
+
                             <div class="product__prices">
                                 <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
                                 <div class="product__price with-discount">450.000 so'm</div>
@@ -22,8 +371,8 @@
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, corrupti debitis! Eius at nostrum, possimus distinctio totam quasi nisi velit, molestiae quae sit eligendi numquam quas reprehenderit facilis iste itaque?
                             </div>
                         </div>
-                        
-                       
+
+
                     </div>
                     <div class="resent">
                         <Card/>
@@ -40,7 +389,7 @@ export default {
         Card
     },
     setup() {
-        
+
     },
 }
 </script>
@@ -57,4 +406,4 @@ export default {
 .resent
     display: flex
     flex-direction: column
-</style>
+</style> -->
