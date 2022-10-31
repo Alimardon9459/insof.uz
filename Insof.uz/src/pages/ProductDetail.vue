@@ -40,10 +40,6 @@ import CompCards from '../components/CompCards.vue'
   }
   </script>
   <style scoped>
-  .container {
-    /* height: 70vh; */
-    /* background: aqua; */
-  }
 
   .title {
     font-size: 1.875rem;
