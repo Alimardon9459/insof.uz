@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div v-if="showModal">
-        <comp-modal header="Hello World" @close="toggleModal" />
-     </div>
+    <div>
+      <q-dialog  v-model="medium">
+        <comp-modal/>
+      </q-dialog>
+    </div>
     <div class="container">
       <div class="title">
         O'xshash mahsulotlar
@@ -39,7 +41,7 @@
             </div>
             <div class="product__spacer">
               <div class="button row justify-center">
-                <q-btn  class="btn shadow-7 mb-20px" padding="5px 40px 5px 40px" @click="toggleModal">button </q-btn>
+                <q-btn   @click="medium = true" class="btn shadow-7 mb-20px" padding="5px 40px 5px 40px" >button </q-btn>
               </div>
             </div>
           </div>
@@ -50,17 +52,20 @@
 </template>
 <script>
 import CompModal from './CompModal.vue'
+
 export default {
   components: { CompModal },
+
   data() {
     return {
-      showModal: false
+       medium: false
     }
   },
   methods: {
-    toggleModal() {
-      this.showModal = !this.showModal
-    }
+    // showModal() {
+    //   // this.showModal = !this.showModal
+    //   this.showModal = true
+    // }
   },
 }
 </script>

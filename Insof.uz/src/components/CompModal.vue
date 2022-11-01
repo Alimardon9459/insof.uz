@@ -1,15 +1,78 @@
-<template>
+<template >
   <div>
-    <div class="bacdrop" @click="closeModall ">
+      iouigdftfygjhfug
+  </div>
+</template>
+<script>
+
+export default {
+    setup(){
+      return{
+        medium: ref(true),
+      }
+    }
+}
+</script>
+<style>
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
+  <div>
+    <q-dialog class="bacdrop" v-model="showModal">
       <div class="modal">
           <h1>{{header}}</h1>
       </div>
-    </div>
+      <q-btn @click="showModal = false">yopish</q-btn>
+    </q-dialog>
+    <q-btn @click="showModal = true">ochish</q-btn>
   </div>
 </template>
 <script>
 export default {
-  props:['header'],
+  data(){
+    return{
+      showModal: false
+    }
+  },
+  props:['header', 'showModal'],
   methods: {
    closeModall(){
     this.$emit('close')
@@ -29,5 +92,5 @@ export default {
   width: 80%
   height: 500px
   margin: 0 auto
-  background: white
-</style>
+  background-color: white
+</style> -->
