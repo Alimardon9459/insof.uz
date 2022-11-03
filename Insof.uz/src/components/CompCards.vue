@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div>
-      <q-dialog  v-model="medium">
+  <div >
+    <div >
+      <q-dialog  v-model="medium" >
         <comp-modal/>
       </q-dialog>
     </div>
