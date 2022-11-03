@@ -17,7 +17,11 @@
           <button class="button__active--2">Sevimlilarga qo'shish</button>
         </div>
         <div class="modal__sena">
-          <!-- incriment va decrementni qo'shigin -->
+         <div class="modal__sena--active  row  justify-between items-start content-start">
+          <div><q-btn @click="increment">-</q-btn></div>
+          <div>{{title}}</div>
+          <div><q-btn @click="decrement">+</q-btn></div>
+         </div>
         </div>
       </div>
     </q-card-section>
@@ -30,11 +34,20 @@
 <script >
 import { ref } from 'vue'
 export default {
-  setup() {
+  data() {
     return {
       medium: ref(true),
+      title: 0
     }
-  }
+  },
+  methods: {
+    increment(){
+      this.title--
+    },
+    decrement(){
+      this.title++
+    }
+  },
 }
 </script>
 <style scoped lang="sass">
@@ -64,8 +77,11 @@ export default {
     cursor: pointer
 .p-1
   color: #111
-  // font-feature-settings: "pnum" on,"lnum" on
   font-weight: 500
+.modal__sena--active
+  width: 120px
+  height: 38px
+  background: blue
 </style>
 
 
