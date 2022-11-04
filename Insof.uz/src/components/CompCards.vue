@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <q-dialog  v-model="medium">
+      <q-dialog  v-model="medium" >
         <comp-modal/>
       </q-dialog>
     </div>
@@ -10,7 +10,7 @@
         O'xshash mahsulotlar
       </div>
       <div class="catalog row">
-        <div class="product shadow-3" v-for="i in 10" :key="i">
+        <div class="product shadow-3" v-for="i in 12" :key="i">
           <div class="product__main">
             <div class="discount">
               <div class="discount__mark">
