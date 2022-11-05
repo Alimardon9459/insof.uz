@@ -1,5 +1,5 @@
 <template >
-    <div class="w-100pr row ">
+    <div class="w-100pr row mb-50px ">
         <BasketProducts class="basket-products"/>
         <BasketInfo class="basket-info"/>
     </div>
