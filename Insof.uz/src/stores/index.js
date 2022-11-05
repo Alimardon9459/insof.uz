@@ -1,5 +1,21 @@
 import { store } from 'quasar/wrappers'
 import { createPinia } from 'pinia'
+import { defineStore } from 'pinia'
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    counter: 0,
+  }),
+  actions:{
+    increment(val=1){
+      this.counter+=val
+    }
+  },
+  getters:{
+    double:(state)=> state.counter*3
+  }
+
+
+})
 
 /*
  * If not building with SSR mode, you can
