@@ -1,15 +1,15 @@
 <template>
     <div class="fs-22px">
-        {{store.count}}
-        <button @click="store.increment(1)"> bos</button>
+        {{store.DiscountProducts}}
+        
     </div>
 </template>
 <script setup>
-    import { useCounterStore } from "../stores/index";
-    const store= useCounterStore();
-    store.count++
-    store.increment(2)
-
+import { useCounterStore } from "../stores/index";
+    const store = useCounterStore();
+    store.getProductsApi();
+    store.getDiscountProducts()
+    
 </script>
 <style scoped>
     
