@@ -19,7 +19,6 @@
         </div>
         <!-- <input type="text" class="search-input" placeholder="Qidirish"> -->
 
-        <a href="new" class="text-white"> Mahsulotlar </a>
         <q-btn  to="/basket" >Karzinka</q-btn>
       </div>
     </q-header>
