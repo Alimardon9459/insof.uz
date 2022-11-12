@@ -15,6 +15,7 @@ export const useCounterStore = defineStore('counter', {
       try {
         const Fetch_Product = await axios.get('https://insofuz.herokuapp.com/productlar/');
         this.ProductsApi = Fetch_Product.data;
+        console.log(this.ProductsApi);
       } 
       catch (err) {
         console.log(err);      
@@ -23,6 +24,7 @@ export const useCounterStore = defineStore('counter', {
     
     // productlar ichida chegirma foizi 0 dan katta bo'lgan productlarni fitler qiladi
     getDiscountProducts () {
+      this.DiscountProducts=[]
       for(let i=0 ; i<this.ProductsApi.length ; i++){
         if(this.ProductsApi[i].chegirma_foizi>0){
          this.DiscountProducts.push(this.ProductsApi[i]) 
@@ -30,13 +32,13 @@ export const useCounterStore = defineStore('counter', {
       }
     },
     // productlar ichida xaridorgir bo'lgan productlarni fitler qiladi
-    async getBuyerProducts () {
-      for(let i=0 ; i<this.ProductsApi.length ; i++){
-        if(this.ProductsApi[i].xaridorgir==true){
-          this.BuyerProducts .push(this.ProductsApi[i]) 
-        }
-      }
-    }
+    // async getBuyerProducts () {
+    //   for(let i=0 ; i<this.ProductsApi.length ; i++){
+    //     if(this.ProductsApi[i].xaridorgir==true){
+    //       this.BuyerProducts .push(this.ProductsApi[i]) 
+    //     }
+    //   }
+    // }
 
   },
   

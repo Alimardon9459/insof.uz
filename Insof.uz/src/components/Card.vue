@@ -1,73 +1,36 @@
 <template>
   <div class="wrapper">
     <!--  -->
-    <div class="product shadow-3"  >
+    <div class="product shadow-3"  v-for=" product , i  in products" :key="i" >
       <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
+        <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
+            <div  class="discount__mark">
                 Chegirma
             </div>
-            <div class="discount__persent">
-                17%
+            <div  class="discount__persent">
+                {{product.chegirma_foizi}}%
             </div>
         </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
+        <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-25px w-100pr">
 
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
         </div>
-          <a href="#" class="product__link">
-            <img
+          <a href="#" class="product__link" >
+            <q-img
               class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
+              :src="product.rasmlari[0].link"
               width="200"
-              height="200"
+              height="200px"
               alt="title"
             />
           </a>
         <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
+          <div class="product__title text-h5">{{product.nomi}}</div>
         </div>
         <div class="product__spacer">
           <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
+            <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
+            <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
+            <div v-if="product.chegirma_narx.length<1 ?true :false" class="product__price with-discount">{{product.narx}} so'm</div>
           </div>
         </div>
         <div class="product__spacer">
@@ -82,135 +45,45 @@
         </div>
       </div>
     </div>
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
-        </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
-        </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product shadow-3" >
-      <div class="product__main">
-        <div class="discount">
-            <div class="discount__mark">
-                Chegirma
-            </div>
-            <div class="discount__persent">
-                17%
-            </div>
-        </div>
-          <a href="#" class="product__link">
-            <img
-              class="img"
-              src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-              width="200"
-              height="200"
-              alt="title"
-            />
-          </a>
-        <div class="product__spacer">
-          <div class="product__title text-h5">Smartphone</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-            <div class="product__price with-discount">450.000 so'm</div>
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </div>
-        </div>
-        <div class="product__spacer">
-          <div class="button">
-            <q-btn rounded class="btn full-width shadow-7">button</q-btn>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
   </div>
 </template>
-<script>
-export default {
-  setup() {},
-};
+<script setup>
+  import { ref } from "vue";  
+  import { useCounterStore } from "../stores/index";
+  const props = defineProps({
+    type: String
+  })
+
+    const store = useCounterStore();
+    const products_api = ref([])
+    const products = ref([])
+    // bekentdan malumotlar kelishi uchun 2 sekund kutadi va 1 s oraliqda qayta ishlaydi
+    let timerId = setInterval(() => {
+      products_api.value=store.ProductsApi
+      return products_api
+    }, 1000);
+
+    // maxsulotlarni saralash uchun
+    function GetFilterProducts(){
+      products.value=products_api.value.filter(function(elem){
+        if(props.type=='discount'){
+          return elem.chegirma_foizi>0 && elem.chegirma_foizi<10
+        }
+        else if(props.type=='mega_discount'){
+          return elem.chegirma_foizi>=10
+        }
+        else{
+          return elem
+        }
+      })
+    }
+
+    setTimeout(() => { 
+      clearInterval(timerId) ;
+      GetFilterProducts() ;
+    }, 3000);
+
+    
 </script>
 <style lang="sass" scoped>
 .wrapper
@@ -222,7 +95,6 @@ export default {
     flex-wrap: wrap
 .product
     width: 200px
-    height: 520px
     border: 1px solid #fffff
     border-radius: 10px
     margin: 20px auto

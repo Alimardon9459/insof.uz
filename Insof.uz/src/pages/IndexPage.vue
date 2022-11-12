@@ -8,7 +8,22 @@
     <div class="heading text-h4 q-mt-xl">
       Chegirmalar
     </div>
-    <Card/>
+    <Suspense>
+      <Card type="discount"/>
+    </Suspense>
+    <div class="heading text-h4 q-mt-xl">
+      Mega chegirmalar Chegirmalar
+    </div>
+    <Suspense>    
+      <Card type="mega_discount" />
+    </Suspense>
+    <div class="heading text-h4 q-mt-xl">
+      Siz uchun kerakli maxsulotlar
+    </div>
+    <Suspense> 
+      <Card type="necessary"/>
+    </Suspense>
+    
   </q-page>
 </template>
 
