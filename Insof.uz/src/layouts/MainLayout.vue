@@ -43,22 +43,19 @@
     </q-footer> -->
   </q-layout>
 </template>
-
-<script>
+<script setup>
 import { ref } from "vue";
+import { useCounterStore } from "../stores/index";
+const store = useCounterStore();
+  //for draver
+  function toggleLeftDrawer() {
+    leftDrawerOpen.value = !leftDrawerOpen.value;
+  }
+  const leftDrawerOpen = ref(false);
 
-export default {
-  setup() {
-    const leftDrawerOpen = ref(false);
+  // api ni olish  piniadan kelayotgan funksiya orqali
+  store.getProductsApi()
 
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-};
 </script>
 <style scoped>
 .bg-color {

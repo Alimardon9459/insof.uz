@@ -9,7 +9,7 @@
         </div>
         <div class="register__end row justify-around ">
             <q-btn class="text-white bg-blue-grey-10 mt-30px" icon="location_on" label=" Lakatsiya olish  " />
-            <q-btn class="text-white bg-blue-grey-10 mt-30px" icon="send" label=" Buyurtma berish  " />
+            <q-btn to="/orderinfo" class="text-white bg-blue-grey-10 mt-30px" icon="send" label=" Buyurtma berish  " />
         </div>
     </div>
 </template>
