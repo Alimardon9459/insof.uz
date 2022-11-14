@@ -7,20 +7,28 @@
       </q-bar>
       <q-separator></q-separator>
 
-      <div class="wrapper row no-wrap justify-between items-center ">
-
-        <div class="gold--text ">
+      <div class="wrapper row no-wrap justify-between items-center">
+        <div class="gold--text">
           <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-          <q-avatar class=" q-ma-sm" size="40px">
-            <img src="../assets/logo3.png" width="100"/>
+          <q-avatar class="q-ma-sm" size="40px">
+            <img src="../assets/logo3.png" width="100" />
           </q-avatar>
           Insof.uz
         </div>
-        <!-- <input type="text" class="search-input" placeholder="Qidirish"> -->
 
-        <a href="new" class="text-white"> Mahsulotlar </a>
-        <q-btn  to="/basket" >Karzinka</q-btn>
+        <router-link to="/search" class="w-50pr">
+          <q-input
+            rounded
+            outlined
+            v-model="search_text"
+            dark
+            class="w-100pr p-5px"
+            label="Maxsulotlarni Qidirish "
+            color="white"
+          />
+        </router-link>
+        <q-btn to="/basket">Karzinka</q-btn>
       </div>
     </q-header>
 
@@ -44,20 +52,44 @@
     </q-footer> -->
   </q-layout>
 </template>
+
+
+
 <script setup>
-import { ref } from "vue";
-import { useCounterStore } from "../stores/index";
-const store = useCounterStore();
-  //for draver
+  import { ref, watch } from "vue";
+  import { useCounterStore } from "../stores/index";
+  const store = useCounterStore();
+  const search_text = ref('')
+  const product_name = ref('')
+  const search_product = ref([])
+  const search = ref()
+
+//for draver
   function toggleLeftDrawer() {
     leftDrawerOpen.value = !leftDrawerOpen.value;
   }
   const leftDrawerOpen = ref(false);
 
-  // api ni olish  piniadan kelayotgan funksiya orqali
-  store.getProductsApi()
+// api ni olish  piniadan kelayotgan funksiya orqali
+  store.GET_PRODUCTS_API();
 
+ 
+  watch(search_text, ()=>{
+    search_product.value=[]
+    for (let i = 0; i < store.ProductsApi.length; i++) {
+      product_name.value=store.ProductsApi[i].nomi.toLowerCase()
+      search_text.value=search_text.value.toLowerCase()
+      search.value=product_name.value.includes(search_text.value)
+      if(search.value){
+        search_product.value.push(store.ProductsApi[i])
+      }
+    }
+    store.GET_SEARCH(search_product)
+  })
+ 
 </script>
+
+
 <style scoped>
 .bg-color {
   background: linear-gradient(89.97deg, #33042e 52.52%, #8f1182 110.06%);
@@ -70,23 +102,22 @@ const store = useCounterStore();
   width: 95%;
   margin: 0 auto;
 }
-.wrapper{
+.wrapper {
   width: 97%;
   margin: 0 auto;
 }
-.search-input{
+.search-input {
   width: 300px;
   height: 30px;
   border-radius: 10px;
   border: none;
-
 }
-::placeholder{
+::placeholder {
   padding-left: 10px;
   font-style: 19px;
 }
 .search-input:focus {
-  outline:none;
+  outline: none;
 }
 /* .q-layout{
   background: linear-gradient(89.97deg, rgba(254, 6, 229, 0.45) 14.19%, rgba(51, 4, 46, 0.61) 110.06%);

@@ -65,17 +65,23 @@
 
     // maxsulotlarni saralash uchun
     function GetFilterProducts(){
-      products.value=products_api.value.filter(function(elem){
-        if(props.type=='discount'){
+      
+      if(props.type=='discount'){
+        products.value=products_api.value.filter(function(elem){
           return elem.chegirma_foizi>0 && elem.chegirma_foizi<10
-        }
-        else if(props.type=='mega_discount'){
+        })
+      }
+      else if(props.type=='mega_discount'){
+        products.value=products_api.value.filter(function(elem){
           return elem.chegirma_foizi>=10
-        }
-        else{
-          return elem
-        }
-      })
+        })
+      }
+      else if(props.type=='necessary'){
+        products.value=products_api.value.filter(function(elem){
+          return elem.chegirma_foizi>=10
+        })
+      }
+    
     }
 
     setTimeout(() => { 

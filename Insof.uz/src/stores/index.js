@@ -2,44 +2,32 @@ import { store } from 'quasar/wrappers'
 import { createPinia } from 'pinia'
 import { defineStore } from 'pinia'
 import axios from "axios"
-export const useCounterStore = defineStore('counter', {
+export const useCounterStore = defineStore('store', {
   state: () => ({
     ProductsApi:[],
-    DiscountProducts:[],
-    BuyerProducts:[], 
+    SearchProducts:[]
   }),
 
   // productlarni becentdan qabul qilyabdi
   actions:{ 
-     async getProductsApi  () {
+     async GET_PRODUCTS_API  () {
       try {
         const Fetch_Product = await axios.get('https://insofuz.herokuapp.com/productlar/');
         this.ProductsApi = Fetch_Product.data;
         console.log(this.ProductsApi);
+        this.SearchProducts=this.ProductsApi
       } 
+
       catch (err) {
         console.log(err);      
       }
     },
+    async GET_SEARCH(products){
+      this.SearchProducts=products
+      console.log(this.SearchProducts);
+      
+    }
     
-    // productlar ichida chegirma foizi 0 dan katta bo'lgan productlarni fitler qiladi
-    getDiscountProducts () {
-      this.DiscountProducts=[]
-      for(let i=0 ; i<this.ProductsApi.length ; i++){
-        if(this.ProductsApi[i].chegirma_foizi>0){
-         this.DiscountProducts.push(this.ProductsApi[i]) 
-        }
-      }
-    },
-    // productlar ichida xaridorgir bo'lgan productlarni fitler qiladi
-    // async getBuyerProducts () {
-    //   for(let i=0 ; i<this.ProductsApi.length ; i++){
-    //     if(this.ProductsApi[i].xaridorgir==true){
-    //       this.BuyerProducts .push(this.ProductsApi[i]) 
-    //     }
-    //   }
-    // }
-
   },
   
 
