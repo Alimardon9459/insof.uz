@@ -66,7 +66,7 @@ export default defineComponent({
 .q-img
     border-radius: 10px
 
-.q-img__content > div
+.q-img__content >
     background: rgba(0,0,0, 0.30)
 </style>
 

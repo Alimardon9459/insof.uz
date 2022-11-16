@@ -13,14 +13,17 @@
         </div>
         <div class="modal__text">
           <p class="p-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, /neque!</p>
-          <p style="color: #999999;">Artikul:</p>
+          <p style="color: #999999;">Narxi: <span>{{current}}so'm</span></p>
           <button class="button__active--2">Sevimlilarga qo'shish</button>
         </div>
-        <div class="modal__sena">
-         <div class="modal__sena--active  row  justify-between items-start content-start">
+        <div class="modal__sena ">
+         <div class="modal__sena--active  row  justify-between">
           <div><q-btn @click="increment">-</q-btn></div>
-          <div>{{title}}</div>
+          <div class=" row items-center"> <span>{{title}}</span> </div>
           <div><q-btn @click="decrement">+</q-btn></div>
+         </div>
+         <div class="q-mt-md">
+          <span>{{allPrince}} so'm</span>
          </div>
         </div>
       </div>
@@ -37,17 +40,27 @@ export default {
   data() {
     return {
       medium: ref(true),
-      title: 0
+      title: 1,
+      current: 2396000,
+      allPrince: 2396000
     }
   },
   methods: {
     increment(){
-      this.title--
+      if (this.title > 1) {
+        this.title--
+        this.allPrince -=this.current
+      }
+
     },
     decrement(){
+     if (this.title < 20) {
       this.title++
+      this.allPrince +=this.current
+     }
     }
   },
+
 }
 </script>
 <style scoped lang="sass">
@@ -59,8 +72,7 @@ export default {
   height: auto
 .modal__sena
   width: 200px
-  height: 120px
-  background: red
+  height: auto
 .button__active--2
     font-size: 12px
     border-radius: 18px
@@ -81,7 +93,9 @@ export default {
 .modal__sena--active
   width: 120px
   height: 38px
-  background: blue
+  border: 1px solid #111
+  .q-btn:before
+    box-shadow: none
 </style>
 
 

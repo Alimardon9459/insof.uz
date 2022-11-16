@@ -71,7 +71,7 @@ import CompCards from '../components/CompCards.vue'
     height: 40%;
   }
   .picture{
-    width: 360px;
+    width: 400px;
     height: 100%;
     /* background: blue; */
   }

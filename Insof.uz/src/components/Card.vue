@@ -244,7 +244,7 @@ export default {
     width: 100%
     height: 35px
     display: flex
-    justify-content: space-between
+    justify-content: space-betweenf
     align-items: center
     // background: linear-gradient(89.97deg, #33042e 52.52%, #8f1182 110.06%)
     color: #fff
