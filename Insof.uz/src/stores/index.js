@@ -5,7 +5,6 @@ import axios from "axios"
 export const useCounterStore = defineStore('store', {
   state: () => ({
     ProductsApi:[],
-    SearchProducts:[]
   }),
 
   // productlarni becentdan qabul qilyabdi
@@ -22,12 +21,7 @@ export const useCounterStore = defineStore('store', {
         console.log(err);      
       }
     },
-    async GET_SEARCH(products){
-      this.SearchProducts=products
-      console.log(this.SearchProducts);
-      
-    }
-    
+
   },
   
 

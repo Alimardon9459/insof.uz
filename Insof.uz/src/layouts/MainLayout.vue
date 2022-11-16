@@ -37,7 +37,7 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view :search_product="search_product" />
     </q-page-container>
 
     <!-- <q-footer elevated class="bg-grey-8 text-white">
@@ -64,7 +64,7 @@
   const search_product = ref([])
   const search = ref()
 
-//for draver
+// draver ochilib yopilishi uchun
   function toggleLeftDrawer() {
     leftDrawerOpen.value = !leftDrawerOpen.value;
   }
@@ -73,19 +73,27 @@
 // api ni olish  piniadan kelayotgan funksiya orqali
   store.GET_PRODUCTS_API();
 
- 
+  // search_product qiymatini 2 s dan keyin umumiy maxsulotlarga tenglashtiradi
+  setTimeout(() => {
+    search_product.value=store.ProductsApi
+  }, 2000);
+  // maxsulotlarni qidirish 
   watch(search_text, ()=>{
     search_product.value=[]
     for (let i = 0; i < store.ProductsApi.length; i++) {
+    // maxsulot nomi va qidirilayotgan so'z harflarini kichik harflarga o'tkazadi
       product_name.value=store.ProductsApi[i].nomi.toLowerCase()
       search_text.value=search_text.value.toLowerCase()
+
+    // qidirilayotgan so'z maxsulot nomida bo'lsa true qiymat qaytaradi va if ishlaydi
       search.value=product_name.value.includes(search_text.value)
       if(search.value){
         search_product.value.push(store.ProductsApi[i])
       }
     }
-    store.GET_SEARCH(search_product)
-  })
+    
+  })  
+  
  
 </script>
 

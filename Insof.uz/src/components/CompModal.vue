@@ -3,15 +3,10 @@
       iouigdftfygjhfug
   </div>
 </template>
-<script>
+<script setup>
+  import {ref} from 'vue'
+  let medium = ref(true)
 
-export default {
-    setup(){
-      return{
-        medium: ref(true),
-      }
-    }
-}
 </script>
 <style>
 

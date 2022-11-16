@@ -4,15 +4,14 @@
     <div class="product shadow-3"  v-for=" product , i  in products" :key="i" >
       <div class="product__main">
         <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
-            <div  class="discount__mark">
-                Chegirma
-            </div>
-            <div  class="discount__persent">
-                {{product.chegirma_foizi}}%
-            </div>
+          <div  class="discount__mark">
+            Chegirma
+          </div>
+          <div  class="discount__persent">
+            {{product.chegirma_foizi}}%
+          </div>
         </div>
-        <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-25px w-100pr">
-
+        <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
         </div>
           <a href="#" class="product__link" >
             <q-img
@@ -30,7 +29,7 @@
           <div class="product__prices">
             <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
             <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
-            <div v-if="product.chegirma_narx.length<1 ?true :false" class="product__price with-discount">{{product.narx}} so'm</div>
+            <div v-if="product.chegirma_narx.length<1 ?true :false" class=" mt-30px product__price with-discount">{{product.narx}} so'm</div>
           </div>
         </div>
         <div class="product__spacer">
@@ -78,7 +77,7 @@
       }
       else if(props.type=='necessary'){
         products.value=products_api.value.filter(function(elem){
-          return elem.chegirma_foizi>=10
+          return elem
         })
       }
     

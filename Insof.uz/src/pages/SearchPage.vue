@@ -1,7 +1,6 @@
   <template>
     <div class="wrapper">
-      
-      <div class="product shadow-3"  v-for=" product , i  in store.SearchProducts" :key="i" >
+      <div class="product shadow-3"  v-for=" product , i  in props.search_product" :key="i" >
         <div class="product__main">
           <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
               <div  class="discount__mark">
@@ -11,7 +10,7 @@
                   {{product.chegirma_foizi}}%
               </div>
           </div>
-          <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-25px w-100pr">
+          <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
   
           </div>
             <a href="#" class="product__link" >
@@ -30,7 +29,7 @@
             <div class="product__prices">
               <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
               <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
-              <div v-if="product.chegirma_narx.length<1 ?true :false" class="product__price with-discount">{{product.narx}} so'm</div>
+              <div v-if="product.chegirma_narx.length<1 ?true :false" class="mt-30px product__price with-discount">{{product.narx}} so'm</div>
             </div>
           </div>
           <div class="product__spacer">
@@ -48,12 +47,12 @@
       
     </div>
   </template>
-<script setup>  
-  import { useCounterStore } from "../stores/index";
-  const store = useCounterStore();
-  store.SearchProducts
-  
-    
+<script setup>
+
+  const props = defineProps({
+    search_product:Array
+  })
+   
 </script>
 <style lang="sass" scoped>
   .wrapper
