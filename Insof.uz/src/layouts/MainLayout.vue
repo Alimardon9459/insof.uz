@@ -17,18 +17,6 @@
           Insof.uz
         </div>
 
-        <router-link to="/search" class="w-50pr">
-          <q-input
-            rounded
-            outlined
-            v-model="search_text"
-            dark
-            class="w-100pr p-5px"
-            label="Maxsulotlarni Qidirish "
-            color="white"
-          />
-        </router-link>
-        <q-btn to="/basket">Karzinka</q-btn>
       </div>
     </q-header>
 
