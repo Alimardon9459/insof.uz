@@ -8,22 +8,22 @@ export const useCounterStore = defineStore('store', {
   }),
 
   // productlarni becentdan qabul qilyabdi
-  actions:{ 
+  actions:{
      async GET_PRODUCTS_API  () {
       try {
         const Fetch_Product = await axios.get('https://insofuz.herokuapp.com/productlar/');
         this.ProductsApi = Fetch_Product.data;
         console.log(this.ProductsApi);
         this.SearchProducts=this.ProductsApi
-      } 
+      }
 
       catch (err) {
-        console.log(err);      
+        console.log(err);
       }
     },
 
   },
-  
+
 
 
 })
@@ -39,6 +39,7 @@ export const useCounterStore = defineStore('store', {
 
 export default store((/* { ssrContext } */) => {
   const pinia = createPinia()
+
 
   // You can add Pinia plugins here
   // pinia.use(SomePiniaPlugin)
