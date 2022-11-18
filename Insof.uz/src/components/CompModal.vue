@@ -1,15 +1,39 @@
 <template >
-  <div>
-      iouigdftfygjhfug
-  </div>
-</template>
-<script setup>
-  import {ref} from 'vue'
-  let medium = ref(true)
 
 </script>
-<style>
-
+<style scoped lang="sass">
+.modal__img
+  width: 120px
+  height: 120px
+.modal__text
+  width: 300px
+  height: auto
+.modal__sena
+  width: 200px
+  height: auto
+.button__active--2
+    font-size: 12px
+    border-radius: 18px
+    padding: 7px 8px
+    border: none
+    background: #12BF6C
+    color: #fff
+    border: 1px solid #12BF6C
+    transition:  0.5s ease
+.button__active--2:hover
+    background: #fff
+    color: #12BF6C
+    border:1px solid #12BF6C
+    cursor: pointer
+.p-1
+  color: #111
+  font-weight: 500
+.modal__sena--active
+  width: 120px
+  height: 38px
+  border: 1px solid #111
+  .q-btn:before
+    box-shadow: none
 </style>
 
 

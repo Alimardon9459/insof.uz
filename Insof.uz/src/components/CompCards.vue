@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <q-dialog  v-model="medium">
+      <q-dialog  v-model="medium" >
         <comp-modal/>
       </q-dialog>
     </div>
@@ -10,7 +10,7 @@
         O'xshash mahsulotlar
       </div>
       <div class="catalog row">
-        <div class="product shadow-3" v-for="i in 10" :key="i">
+        <div class="product shadow-3" v-for="i in 12" :key="i">
           <div class="product__main">
             <div class="discount">
               <div class="discount__mark">
@@ -89,7 +89,8 @@ export default {
 .product
     width: 200px
     //height: 400px
-    border: 1px solid #fffff
+    border: 1px solid #fff
+    // box-shadow: 5px 5px 5px 5px rgba(0,0,0, .15)
     border-radius: 10px
     margin: 20px auto
     // margin: 20px 20px 20px 0
@@ -103,7 +104,6 @@ export default {
     // letter-spacing: 1em
     // line-height: 1.75em
 
-.product__spacer
 
 .discount
     width: 100%

@@ -27,6 +27,7 @@
               <!-- reklama uchun joy -->
           </div>
       </div>
+
     </div>
     
     <comp-cards/>
@@ -37,9 +38,7 @@
   
   import CompCards from '../components/CompCards.vue'
   import CompCarusel from '../components/СompCarusel'
-  
-</script>
-<style scoped>
+
 
   .title {
     font-size: 1.875rem;
@@ -65,7 +64,7 @@
     height: 40%;
   }
   .picture{
-    width: 360px;
+    width: 400px;
     height: 100%;
     /* background: blue; */
   }
