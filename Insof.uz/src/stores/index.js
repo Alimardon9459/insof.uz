@@ -1,10 +1,5 @@
 import { store } from 'quasar/wrappers'
 import { createPinia } from 'pinia'
-<<<<<<< HEAD
-// import {vIntersect} from 'vue-intersect'
-
-
-=======
 import { defineStore } from 'pinia'
 import axios from "axios"
 export const useCounterStore = defineStore('store', {
@@ -13,26 +8,25 @@ export const useCounterStore = defineStore('store', {
   }),
 
   // productlarni becentdan qabul qilyabdi
-  actions:{ 
+  actions:{
      async GET_PRODUCTS_API  () {
       try {
         const Fetch_Product = await axios.get('https://insofuz.herokuapp.com/productlar/');
         this.ProductsApi = Fetch_Product.data;
         console.log(this.ProductsApi);
         this.SearchProducts=this.ProductsApi
-      } 
+      }
 
       catch (err) {
-        console.log(err);      
+        console.log(err);
       }
     },
 
   },
-  
+
 
 
 })
->>>>>>> e32e940a50e98a8fd53238d7c80d7ab586b37ca9
 
 /*
  * If not building with SSR mode, you can
