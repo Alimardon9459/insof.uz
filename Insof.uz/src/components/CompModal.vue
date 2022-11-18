@@ -1,6 +1,6 @@
 <template >
+</template>
 
-</script>
 <style scoped lang="sass">
 .modal__img
   width: 120px

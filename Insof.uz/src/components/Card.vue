@@ -13,7 +13,7 @@
         </div>
         <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
         </div>
-          <a href="#" class="product__link" >
+          <router-link :to="'/detail/'+ product.id" class="product__link" >
             <q-img
               class="img"
               :src="product.rasmlari[0].link"
@@ -21,7 +21,7 @@
               height="200px"
               alt="title"
             />
-          </a>
+          </router-link>
         <div class="product__spacer">
           <div class="product__title text-h5">{{product.nomi}}</div>
         </div>
@@ -49,11 +49,12 @@
 <script setup>
   import { ref } from "vue";  
   import { useCounterStore } from "../stores/index";
+  const store = useCounterStore();
+  
   const props = defineProps({
     type: String
   })
 
-    const store = useCounterStore();
     const products_api = ref([])
     const products = ref([])
     // bekentdan malumotlar kelishi uchun 2 sekund kutadi va 1 s oraliqda qayta ishlaydi
@@ -121,7 +122,7 @@
     width: 100%
     height: 35px
     display: flex
-    justify-content: space-betweenf
+    justify-content: space-between
     align-items: center
     // background: linear-gradient(89.97deg, #33042e 52.52%, #8f1182 110.06%)
     color: #fff
