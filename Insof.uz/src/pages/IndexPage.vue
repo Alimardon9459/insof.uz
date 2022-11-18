@@ -8,23 +8,31 @@
     <div class="heading text-h4 q-mt-xl">
       Chegirmalar
     </div>
-    <Card/>
+    <Suspense>
+      <Card type="discount"/>
+    </Suspense>
+    <div class="heading text-h4 q-mt-xl">
+      Mega chegirmalar Chegirmalar
+    </div>
+    <Suspense>    
+      <Card type="mega_discount" />
+    </Suspense>
+    <div class="heading text-h4 q-mt-xl">
+      Siz uchun kerakli maxsulotlar
+    </div>
+    <Suspense> 
+      <Card type="necessary"/>
+    </Suspense>
+    
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-import Carusel from '../components/Carusel'
-import CategoryCards from 'src/components/Category-cards'
-import Card from 'src/components/Card'
-export default defineComponent({
-  name: 'IndexPage',
-  components:{
-    Carusel,
-    CategoryCards,
-    Card
-}
-})
+<script setup>
+  import { defineComponent } from 'vue'
+  import Carusel from '../components/Carusel'
+  import CategoryCards from 'src/components/Category-cards'
+  import Card from 'src/components/Card'
+
 </script>
 <style lang="sass"  scoped>
 .heading
