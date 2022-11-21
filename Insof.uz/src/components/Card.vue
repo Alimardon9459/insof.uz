@@ -115,7 +115,7 @@
     // align-items: center
     // letter-spacing: 1em
     line-height: 1.75em
-
+  
 .product__spacer
     padding-top: 10px
 .discount
