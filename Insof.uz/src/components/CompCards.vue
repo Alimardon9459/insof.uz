@@ -10,35 +10,39 @@
         O'xshash mahsulotlar
       </div>
       <div class="catalog row">
-        <div class="product shadow-3" v-for="i in 12" :key="i">
+        <div class="product shadow-3" v-for="product,i in products" :key="i">
           <div class="product__main">
-            <div class="discount">
-              <div class="discount__mark">
-                Chegirma
-              </div>
-              <div class="discount__persent">
-                17%
-              </div>
+            
+            <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
+              <div class="discount__mark">Chegirma</div>
+              <div class="discount__persent">{{product.chegirma_foizi}}%</div>
             </div>
-            <a href="#" class="product__link">
-              <img class="img"
-                src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-                width="150" height="150" alt="title" />
-            </a>
-            <div class="product__spacer">
-              <div class="product__title text-h6">Smartphone</div>
-            </div>
-            <div class="product__spacer">
-              <div class="product__prices">
-                <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-                <div class="product__price with-discount">450.000 so'm</div>
+            
+            <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-40px w-100pr"></div>
+            
+            <router-link :to="'/detail/'+ product.id" class="product__link" @click="refresh(i)" >
+              <q-img class="img"
+                :src="product.rasmlari[0].link"
+                 height="160px" 
+                 alt="title" 
+              />
+            
+              <div class="product__spacer">
+                <div class="product__title text-h6 mt-10px">{{product.nomi}}</div>
               </div>
-            </div>
-            <div class="product__spacer">
-              <div class="product__description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <div class="product__spacer">
+                <div class="product__prices row justify-center">
+                  <div v-if="product.chegirma_narx.length>1 ?true :false"  class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
+                  <div v-if="product.chegirma_narx.length<1 ?true :false"  class="product__price with-discount mt-20px "> {{product.narx}} so'm </div>
+                  <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
+                </div>
               </div>
-            </div>
+              <div class="product__spacer">
+                <div class="product__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+              </div>
+            </router-link>
             <div class="product__spacer">
               <div class="button row justify-center">
                 <q-btn   @click="medium = true" class="btn shadow-7 mb-20px" padding="5px 40px 5px 40px" >button </q-btn>
@@ -50,24 +54,39 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import CompModal from './CompModal.vue'
+import {ref} from 'vue'
+import { useCounterStore } from "../stores/index";
+  const store = useCounterStore();
+  const props = defineProps({
+    type_product: Number
+  })
+  const emits = defineEmits(["refresh"])
+  let medium = false
+  const products=ref([])
+  let id
 
-export default {
-  components: { CompModal },
+ // o'xshash maxsulotlarni filter qilish 
+ 
+  function getProduct(){
+    products.value=store.ProductsApi.filter(function(elem){
+      return elem.mahsulot==props.type_product
+    })
+  }
+  // bekentdan malumot kelgandan keyin getProduct funksiyasini ishlatish uchun
+  let gettesting  = setInterval(() => { 
+    if(store.ProductsApi.length>0){
+      getProduct()
+      clearInterval(gettesting)
+    }   
+  }, 500);
 
-  data() {
-    return {
-       medium: false
-    }
-  },
-  methods: {
-    // showModal() {
-    //   // this.showModal = !this.showModal
-    //   this.showModal = true
-    // }
-  },
-}
+  function refresh(i){
+    id = products.value[i].id
+    emits("refresh" , id )
+  }
+
 </script>
 <style scoped lang="sass">
 .container
@@ -121,10 +140,8 @@ export default {
     text-align: center
 .product__link
     width: 100%
-    height: 150px
-    display: flex
-    justify-content: center
-    align-items: center
+    text-decoration: none
+    color: black
 .product__price
     width: 90%
     text-align: center

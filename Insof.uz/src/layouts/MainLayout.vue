@@ -11,10 +11,12 @@
         <div class="gold--text">
           <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-          <q-avatar class="q-ma-sm" size="40px">
-            <img src="../assets/logo3.png" width="100" />
-          </q-avatar>
-          Insof.uz
+          <router-link to="/" class="gold--text">
+            <q-avatar class="q-ma-sm" size="40px">
+              <img src="../assets/logo3.png" width="100" />
+            </q-avatar>
+            Insof.uz
+          </router-link>
         </div>
         <router-link to="/search" class="w-50pr">
           <q-input
@@ -98,6 +100,9 @@
 
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 .bg-color {
   background: linear-gradient(89.97deg, #33042e 52.52%, #8f1182 110.06%);
 }

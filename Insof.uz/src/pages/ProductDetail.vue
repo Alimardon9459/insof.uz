@@ -30,9 +30,9 @@
       </div>
 
     </div>
-    
-    <comp-cards/>
-  
+    <Suspense>
+      <comp-cards :type_product=" product.mahsulot " @refresh="refresh" />
+    </Suspense>
   </div>
 </template>
 <script setup>
@@ -45,11 +45,27 @@
   const store = useCounterStore();
   let id = useRoute().params.id
   const product = ref([])
-  setTimeout(() => {
-    product.value=store.ProductsApi[id-1]
+ 
+  //  maxsulotni topib olish uchun 
+
+  let getfild  = setInterval(() => { 
+    if(store.ProductsApi.length>0){
+      product.value=store.ProductsApi[id-1]
+      clearInterval(getfild)
+
+    }   
   }, 500);
-  
-  
+
+
+
+  function refresh(aa){
+    let getfild  = setInterval(() => { 
+      if(store.ProductsApi.length>0){
+        product.value=store.ProductsApi[aa-1]
+        clearInterval(getfild)
+      }   
+    }, 100);
+  }
 
 
 </script>

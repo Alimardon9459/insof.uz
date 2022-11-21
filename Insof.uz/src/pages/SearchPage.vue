@@ -2,41 +2,41 @@
     <div class="wrapper">
       <div class="product shadow-3"  v-for=" product , i  in props.search_product" :key="i" >
         <div class="product__main">
-          <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
-              <div  class="discount__mark">
-                  Chegirma
-              </div>
-              <div  class="discount__persent">
-                  {{product.chegirma_foizi}}%
-              </div>
-          </div>
-          <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
-  
-          </div>
-            <a href="#" class="product__link" >
-              <q-img
-                class="img"
-                :src="product.rasmlari[0].link"
-                width="200"
-                height="200px"
-                alt="title"
-              />
-            </a>
-          <div class="product__spacer">
-            <div class="product__title text-h5">{{product.nomi}}</div>
-          </div>
-          <div class="product__spacer">
-            <div class="product__prices">
-              <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
-              <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
-              <div v-if="product.chegirma_narx.length<1 ?true :false" class="mt-30px product__price with-discount">{{product.narx}} so'm</div>
+          <router-link :to="'/detail/'+ product.id">
+            <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
+                <div  class="discount__mark">
+                    Chegirma
+                </div>
+                <div  class="discount__persent">
+                    {{product.chegirma_foizi}}%
+                </div>
             </div>
-          </div>
-          <div class="product__spacer">
-            <div class="product__description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
+    
             </div>
-          </div>
+            <q-img
+              class="img"
+              :src="product.rasmlari[0].link"
+              width="200"
+              height="200px"
+              alt="title"
+            />
+            <div class="product__spacer">
+              <div class="product__title text-h5">{{product.nomi}}</div>
+            </div>
+            <div class="product__spacer">
+              <div class="product__prices row justify-center">
+                <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
+                <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
+                <div v-if="product.chegirma_narx.length<1 ?true :false" class="mt-30px product__price with-discount">{{product.narx}} so'm</div>
+              </div>
+            </div>
+            <div class="product__spacer">
+              <div class="product__description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </router-link>
           <div class="product__spacer">
             <div class="button">
               <q-btn rounded class="btn full-width shadow-7">button</q-btn>
@@ -55,6 +55,9 @@
    
 </script>
 <style lang="sass" scoped>
+  a
+    text-decoration: none
+    color: black
   .wrapper
       width: 100%
       margin: 0 auto

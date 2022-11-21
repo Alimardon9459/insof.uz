@@ -9,7 +9,7 @@
       
     >
       <q-carousel-slide 
-        v-for="img , i in props.img_api"
+        v-for="img ,i in props.img_api"
         :key="i"
         :name="i+1"
         :img-src="img.link" 
