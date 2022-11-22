@@ -3,17 +3,18 @@
     <!--  -->
     <div class="product shadow-3"  v-for=" product , i  in products" :key="i" >
       <div class="product__main">
-        <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
-          <div  class="discount__mark">
-            Chegirma
+        <router-link :to="'/detail/'+ product.id" class="product__link" >
+          <div v-if="product.chegirma_foizi.length>=1 ?true :false" class="discount">
+            <div  class="discount__mark">
+              Chegirma
+            </div>
+            <div  class="discount__persent">
+              {{product.chegirma_foizi}}%
+            </div>
           </div>
-          <div  class="discount__persent">
-            {{product.chegirma_foizi}}%
+          <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
           </div>
-        </div>
-        <div v-if="product.chegirma_foizi.length<1 ?true :false" class=" h-50px w-100pr">
-        </div>
-          <router-link :to="'/detail/'+ product.id" class="product__link" >
+          
             <q-img
               class="img"
               :src="product.rasmlari[0].link"
@@ -21,22 +22,23 @@
               height="200px"
               alt="title"
             />
-          </router-link>
-        <div class="product__spacer">
-          <div class="product__title text-h5">{{product.nomi}}</div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__prices">
-            <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
-            <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
-            <div v-if="product.chegirma_narx.length<1 ?true :false" class=" mt-30px product__price with-discount">{{product.narx}} so'm</div>
+         
+          <div class="product__spacer">
+            <div class="product__title text-h5">{{product.nomi}}</div>
           </div>
-        </div>
-        <div class="product__spacer">
-          <div class="product__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <div class="product__spacer">
+            <div class="product__prices row justify-center">
+              <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price none-discount"> <del>{{product.narx}} so'm</del> </div>
+              <div v-if="product.chegirma_narx.length>1 ?true :false" class="product__price with-discount">{{product.chegirma_narx}} so'm</div>
+              <div v-if="product.chegirma_narx.length<1 ?true :false" class=" mt-30px product__price with-discount">{{product.narx}} so'm</div>
+            </div>
           </div>
-        </div>
+          <div class="product__spacer">
+            <div class="product__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </router-link>
         <div class="product__spacer">
           <div class="button">
             <q-btn rounded class="btn full-width shadow-7">button</q-btn>
@@ -57,11 +59,11 @@
 
     const products_api = ref([])
     const products = ref([])
-    // bekentdan malumotlar kelishi uchun 2 sekund kutadi va 1 s oraliqda qayta ishlaydi
-    let timerId = setInterval(() => {
+    // bekentdan malumotlar kelishi uchun   0.5 s oraliqda qayta ishlaydi
+    let getpro = setInterval(() => {
       products_api.value=store.ProductsApi
       return products_api
-    }, 1000);
+    }, 500);
 
     // maxsulotlarni saralash uchun
     function GetFilterProducts(){
@@ -84,10 +86,14 @@
     
     }
 
-    setTimeout(() => { 
-      clearInterval(timerId) ;
-      GetFilterProducts() ;
-    }, 3000);
+    let gettesting  = setInterval(() => { 
+      if(products_api.value.length>0){
+        clearInterval(getpro) ;
+        GetFilterProducts() ;
+        clearInterval(gettesting) 
+      }
+      
+    }, 505);
 
     
 </script>
@@ -115,7 +121,7 @@
     // align-items: center
     // letter-spacing: 1em
     line-height: 1.75em
-
+  
 .product__spacer
     padding-top: 10px
 .discount
@@ -134,10 +140,8 @@
     text-align: center
 .product__link
     width: 100%
-    height: 200px
-    display: flex
-    justify-content: center
-    align-items: center
+    text-decoration: none
+    color: black
 .product__price
     width: 90%
     text-align: center
