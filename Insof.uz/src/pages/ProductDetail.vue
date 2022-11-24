@@ -18,9 +18,12 @@
               <p style="color: #8a8a8a; font-size: 0.8rem ; text-align: left;">Ta'sirchan suratga olish sifati 108 megapikselli asosiy kamera 1/1,52 dyuymli Samsung HM2 sensori bilan jihozlangan va katta 2,1 mkm pikselni ta'minlovchi 9-in-1 pikselni birlashtirish texnologiyasini qo'llab-quvvatlaydi. Ikkilamchi mahalliy ISO bilan siz past yorug'lik sharoitida ham shovqinni kamaytiradigan aniq va teksturali tasvirlarni olishingiz mumkin. Shuningdek, u 108 megapikselli tasvirlarni to‘g‘ridan-to‘g‘ri chiqarish imkonini beradi, shu bilan birga ko‘proq tafsilotlarni saqlab qoladi, bu esa yaxshiroq kompozitsiya uchun masshtablash yoki kesish uchun qulaydir.</p>
           </div>
           <div class="button  row  justify-between items-start content-start q-mt-lg" style="box-sizing: border-box;">
-            <button class="button__active">Savatchaga qo'shish</button>
-            <button class="button__active--2">Bo'lib to'lash</button>
-            <button class="button__active--3">Bir kilikda sotib olish</button>
+            <div class="modal__sena--active  row  justify-between">
+              <div><q-btn @click="decrement()" >-</q-btn></div>
+              <div class=" row items-center"> <span>{{quantity}}</span> </div>
+              <div><q-btn @click="increment()" >+</q-btn></div>
+            </div>
+            <button @click="addOrders()" class="button__active">Savatchaga qo'shish</button>
           </div>
         </div>
   
@@ -30,14 +33,16 @@
       </div>
 
     </div>
+    <div class="title-pro mt-30px">
+      O'xshash mahsulotlar
+    </div>
     <Suspense>
-      <comp-cards :type_product=" product.mahsulot " @refresh="refresh" />
+      <Card :products=" products" @refresh="refresh" />
     </Suspense>
   </div>
 </template>
 <script setup>
-  
-  import CompCards from '../components/CompCards.vue'
+  import Card from 'src/components/Card'
   import CompCarusel from '../components/СompCarusel'
   import { useRoute } from 'vue-router';
   import { useCounterStore } from "../stores/index";
@@ -56,22 +61,82 @@
     }   
   }, 500);
 
-
-
-  function refresh(aa){
+  // o'xshash maxsulotlarni filter qilish 
+  const products=ref([])
+  function getProduct(){
+    products.value=store.ProductsApi.filter(function(elem){
+      return elem.mahsulot==product.value.mahsulot
+    })
+  }
+  // bekentdan malumot kelgandan keyin getProduct funksiyasini ishlatish uchun
+  let gettesting  = setInterval(() => { 
+    if(store.ProductsApi.length>0){
+      getProduct()
+      clearInterval(gettesting)
+    }   
+  }, 500);
+// malumotlarni yangilash uchun
+  function refresh(id){
     let getfild  = setInterval(() => { 
       if(store.ProductsApi.length>0){
-        product.value=store.ProductsApi[aa-1]
+        product.value=store.ProductsApi[id-1]
         clearInterval(getfild)
       }   
     }, 100);
   }
+// maxsulot sonini qo'shish
+  let quantity=ref(1)
 
+  function increment(){
+    if(quantity.value<20){
+      quantity.value++
+    }
+  }
+// maxsulot sonini ayrish
+  function decrement(){
+    if(quantity.value>1){
+      quantity.value--
+    }
+  }
+
+  // store.orders ga ma'lumot qo'shish 
+  function addOrders(){
+    const order={
+      id:product.value.id,
+      quantity:quantity.value,
+      nomi:product.value.nomi,
+      narx:product.value.narx,
+      chegirma_foizi:product.value.chegirma_foizi,
+      chegirma_narx:product.value.chegirma_narx,
+      rasmlari:product.value.rasmlari
+    }
+
+    let check
+    check = store.Orders.some(function(elem){
+      return elem.id==product.value.id
+    })
+    
+    if(check){
+      for(let i=0 ; i<store.Orders.length ; i++){
+        if(store.Orders[i].id==product.value.id){
+          store.Orders[i].quantity+=quantity.value*1
+        }
+      }
+    }
+    else{
+      store.Orders.push(order)
+      console.log(store.Orders);
+    }
+    store.ALL_PRINCE_CALCULATION()
+  }
 
 </script>
 <style scoped>
 
-
+  .title-pro{
+    font-size: 1.875rem;
+    font-weight: 560;
+  }
   .title {
     font-size: 1.875rem;
     font-weight: 560;
@@ -155,215 +220,25 @@
     padding: 7px 8px;
     cursor: pointer;
   }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <template>
-    <div class="wrapper">
-      <div class="card">
-        <div class="product">
-          <div class="product__main">
-            <div class="product__title">
-              Title
-            </div>
-            <div class="product__wrapper">
-              <div class="img">
-                <img
-                  src="https://olcha.uz/image/425x425/products/rEES4fDb0cYy8rm4TsLWVIoh1FQeCHDj7WIT4d977eQpHrVrxNQwJxKJVDzL."
-                  alt="" width="100%" />
-              </div>
-
-              <div class="product__info">
-
-                <div class="product__prices">
-                  <div class="product__price none-discount"> <del>500.000 so'm</del> </div>
-                  <div class="product__price with-discount">450.000 so'm</div>
-                </div>
-                <div class="product__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, corrupti debitis! Eius at nostrum,
-                  possimus distinctio totam quasi nisi velit, molestiae quae sit eligendi numquam quas reprehenderit
-                  facilis iste itaque?
-                </div>
-              </div>
-
-
-            </div>
-            <div class="resent">
-              <Card />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </template>
-  <script>
-  import Card from '../components/Card'
-  export default {
-    components: {
-      Card
-    },
-    setup() {
-
-    },
+  .product__quantity {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 50px;
+    border: solid 1px grey;
+    box-shadow: 0px 0px 8px 0px grey;
   }
-  </script>
-  <style lang="sass" scoped>
-  .product__wrapper
-      width: 100%
-      display: flex
-      justify-content: space-between
-      flex-wrap: wrap
+  .quantity {
+    font-size: 18px;
+  }
+  .modal__sena--active{
+    width: 120px;
+    height: 38px;
+    border: 1px solid #111;
+  }
+  .q-btn:before{
+    box-shadow: none;
+  }
 
-  .product__info
-      max-width: 500px
-      flex-grow: 1
-  .resent
-      display: flex
-      flex-direction: column
-  </style> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</style>

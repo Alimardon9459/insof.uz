@@ -4,11 +4,11 @@
             <div class="info__data">
                 <span class="data__body" > 
                     <span>Стоимость:</span> 
-                    <span>20 129 711 сум</span> 
+                    <span> {{ store.AllPrinceProducts }} сум</span> 
                 </span>
                 <span class="data__body" > 
                     <span>Скидка:</span> 
-                    <span>0 сум</span> 
+                    <span>{{store.AllRebate}} сум</span> 
                 </span>
                 <span class="data__body" > 
                     <span>Стоимость доставки</span> 
@@ -24,17 +24,18 @@
             <div class="info__placing-order row justify-center">
                 <span class="placing-order__price" > 
                     <span>Итого:</span> 
-                    <span>20 129 711 сум</span> 
+                    <span> {{ store.AllPrinceProducts }} so'm</span> 
                 </span>
                 <q-btn color="white" class="bg-red mt-20px" rounded to="/registration" >ОФОРМИТЬ ЗАКАЗ</q-btn>
             </div>
         </div>
     </div>
 </template>
-<script>
-export default {
+<script setup>
+import { useCounterStore } from "src/stores/index";
+const store = useCounterStore();
 
-}
+
 </script>
 <style scoped>
     .info{
