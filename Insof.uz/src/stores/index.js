@@ -15,38 +15,18 @@ export const useCounterStore = defineStore('store', {
   }),
 
   // productlarni becentdan qabul qilyabdi
-  actions:{ 
+  actions:{
      async GET_PRODUCTS_API  () {
       try {
         const Fetch_Product = await axios.get('https://insofuz.herokuapp.com/productlar/');
         this.ProductsApi = Fetch_Product.data;
         console.log(this.ProductsApi);
-      } 
 
       catch (err) {
-        console.log(err);      
+        console.log(err);
       }
     },
 
-    INCREMENT(id) {
-      for(let i=0 ; i < this.Orders.length ; i++ ){
-        if(this.Orders[i].id==id && this.Orders[i].quantity<20 ){
-          this.Orders[i].quantity++
-        }
-      }
-    },
-
-    DECREMENT(id) {
-      for(let i=0 ; i < this.Orders.length ; i++ ){
-        if(this.Orders[i].id==id && this.Orders[i].quantity>1 ){
-          this.Orders[i].quantity--
-        }
-      }
-    },
-
-    DELETE(id){
-      this.Orders.splice(id,1)
-    },
 
     ALL_PRINCE_CALCULATION(){
       this.AllPrinceProducts=0
@@ -83,6 +63,7 @@ export const useCounterStore = defineStore('store', {
 
 export default store((/* { ssrContext } */) => {
   const pinia = createPinia()
+
 
   // You can add Pinia plugins here
   // pinia.use(SomePiniaPlugin)
