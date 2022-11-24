@@ -26,8 +26,6 @@ export const useCounterStore = defineStore('store', {
       catch (err) {
         console.log(err);      
       }
-
-
     },
 
     INCREMENT(id) {
