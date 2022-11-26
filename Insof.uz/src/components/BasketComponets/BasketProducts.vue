@@ -1,7 +1,7 @@
 <template>
   <div class="products">
     <div class="products__body">
-      <div class="products__title">В корзине {{store.Orders.length}} товара</div>
+      <div class="products__title">Savatda {{store.Orders.length}} ta mahsulot bor </div>
         <div class="products__line q-mt-md">
             <q-separator />
         </div>
@@ -15,8 +15,8 @@
             </div>
             <div class="product__info">
               <p class="product__name">{{product.nomi}}</p>
-              <p v-if="product.chegirma_foizi<1 ?true :false" class="product__price">Narxi: {{product.narx}} so'm </p>
-              <p v-if="product.chegirma_foizi>0 ?true :false" class="product__price">Narxi: {{product.chegirma_narx}} so'm </p>
+              <div v-if="product.chegirma_foizi<1 ?true :false" class="product__price">Narxi: {{product.narx}} so'm </div>
+              <div v-if="product.chegirma_foizi>0 ?true :false" class="product__price">Narxi: <del class="mr-10px">{{product.narx}} </del>  {{product.chegirma_narx}} so'm </div>
             </div>
             <div class="product__quantity">
               <q-icon @click="decrement(i)" name="remove_circle" size="22px" />

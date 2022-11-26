@@ -45,13 +45,29 @@ import { useCounterStore } from "../stores/index"
   const props=defineProps({
     product: Array
   })
+
+  const product=[]
+  product.value=props.product
   
+  
+
+  // maxsulot miqdorini aniqlash
   let quantity=ref(1)
+
+  store.Orders.forEach(element => {
+    if(element.id==product.value[0].id){
+      quantity.value=element.quantity
+    }
+    console.log(" comp modal  foreach 1 ");
+  })
+  
+  // maxsulotni sonini qo'shish
   function increment(){
     if(quantity.value<20){
       quantity.value++
     }
   }
+  // maxsulotni sonini ayrish
   function decrement(){
     if(quantity.value>1){
       quantity.value--
@@ -59,8 +75,7 @@ import { useCounterStore } from "../stores/index"
   }
 // store.orders ga ma'lumot qo'shish 
   function addOrders(){
-    const product=[]
-    product.value=props.product
+    
     const order={
       id:product.value[0].id,
       quantity:quantity.value,
@@ -70,18 +85,19 @@ import { useCounterStore } from "../stores/index"
       chegirma_narx:product.value[0].chegirma_narx,
       rasmlari:product.value[0].rasmlari
     }
-
+    // maxsulot oldin qo'shilgan yoki qo'shilganligini tekshirish
     let check
     check = store.Orders.some(function(elem){
       return elem.id == product.value[0].id
     })
-    console.log(check);
+    // maxsulot oldin qo'shilgan bo'lsa uni yangi qiymatini o'rnatish
     if(check){
-      for(let i=0 ; i<store.Orders.length ; i++){
-        if(store.Orders[i].id==product.value[0].id){
-          store.Orders[i].quantity+=quantity.value*1
+      store.Orders.forEach(element => {
+        if(element.id==product.value[0].id){
+          element.quantity=quantity.value
         }
-      }
+        console.log(" comp modal  foreach 2 ");
+      })
     }
     else{
       store.Orders.push(order)

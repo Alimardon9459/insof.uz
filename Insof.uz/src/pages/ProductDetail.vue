@@ -1,5 +1,18 @@
 <template>
   <div>
+    <div>
+      <q-dialog v-model="type_alert">
+        <q-card style="width: 300px">
+        <q-card-section>
+          <div class="text-h6">{{ product.nomi}}</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none text-center">
+          {{quantity}} kg qo'shildi
+        </q-card-section>
+      </q-card>
+      </q-dialog>
+    </div>
     <div class="container">
       <h1 class="title">{{ product.nomi}}</h1>
       <div class="content  row  justify-between items-start content-start">
@@ -23,7 +36,12 @@
               <div class=" row items-center"> <span>{{quantity}}</span> </div>
               <div><q-btn @click="increment()" >+</q-btn></div>
             </div>
+            
             <button @click="addOrders()" class="button__active">Savatchaga qo'shish</button>
+          </div>
+          <div class="mt-20px">
+            <span v-if="product.chegirma_foizi<1 ?true :false" class="fs-18px"> Umumiy Narxi: {{ product.narx * quantity }} so'm </span>
+            <span v-if="product.chegirma_foizi>=1 ?true :false" class="fs-18px"> Umumiy Narxi: {{ product.chegirma_narx * quantity }} so'm </span>
           </div>
         </div>
   
@@ -50,15 +68,26 @@
   const store = useCounterStore();
   let id = useRoute().params.id
   const product = ref([])
- 
+  const type_alert = ref(false)
+
+  // maxsulot miqdorini aniqlash
+  function checkQuantity(){
+    store.Orders.forEach(element => {
+      if(element.id==product.value.id){
+        quantity.value=element.quantity
+      }
+      console.log(" product detail  foreach 1 ");
+    })
+  } 
   //  maxsulotni topib olish uchun 
 
   let getfild  = setInterval(() => { 
     if(store.ProductsApi.length>0){
       product.value=store.ProductsApi[id-1]
       clearInterval(getfild)
-
+      checkQuantity()
     }   
+    console.log(" product detail  setInterval 1 ");
   }, 500);
 
   // o'xshash maxsulotlarni filter qilish 
@@ -82,11 +111,12 @@
         product.value=store.ProductsApi[id-1]
         clearInterval(getfild)
       }   
+      console.log(" product detail  setInterval 2 ");
     }, 100);
   }
 // maxsulot sonini qo'shish
   let quantity=ref(1)
-
+  
   function increment(){
     if(quantity.value<20){
       quantity.value++
@@ -117,17 +147,22 @@
     })
     
     if(check){
-      for(let i=0 ; i<store.Orders.length ; i++){
-        if(store.Orders[i].id==product.value.id){
-          store.Orders[i].quantity+=quantity.value*1
+      store.Orders.forEach(element => {
+        if(element.id==product.value.id){
+          element.quantity=quantity.value
         }
-      }
+        console.log(" product detail  foreach 2 ");
+      })
     }
     else{
       store.Orders.push(order)
       console.log(store.Orders);
     }
     store.ALL_PRINCE_CALCULATION()
+    type_alert.value=true
+    setTimeout(() => {
+      type_alert.value=false
+    }, 1500);
   }
 
 </script>

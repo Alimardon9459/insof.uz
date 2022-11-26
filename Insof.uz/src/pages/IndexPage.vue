@@ -74,14 +74,6 @@ import { ref } from "vue";
 import { useCounterStore } from "../stores/index";
 const store = useCounterStore();
 
-// bekentdan malumotlar kelishi uchun   0.5 s oraliqda qayta ishlaydi
-const products_api = ref([]);
-
-let getpro = setInterval(() => {
-  products_api.value = store.ProductsApi;
-  return products_api;
-}, 500);
-
 // maxsulotlarni saralash uchun
 const discount_products = ref([]);
 const mega_discount_products = ref([]);
@@ -100,13 +92,15 @@ function GetFilterProducts() {
     return elem;
   });
 }
-
+// bekentdan malumotlar keilganini tekshiradi va filtrlaydi
+const products_api = ref([]);
 let gettesting = setInterval(() => {
-  if (products_api.value.length > 0) {
-    clearInterval(getpro);
+  if (store.ProductsApi.length > 0) {
+    products_api.value = store.ProductsApi;
     GetFilterProducts();
     clearInterval(gettesting);
   }
+  console.log("index page set interval");
 }, 505);
 
 // localStorage.setItem( "comps" , JSON.stringify( comps_info) )
