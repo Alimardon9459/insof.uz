@@ -115,6 +115,7 @@ async function getApiUser() {
     console.log(err)
   }
 }
+getApiUser()
 // foydalanuvchi idsini aniqlash
 const user_id = ref()
 function ChectUserId() {
