@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+
         <div>
             <div
                 v-if="category_product.length < 1 ? true : false"
@@ -17,7 +17,7 @@
                 />
             </div>
         </div>
-        
+
         <div v-if="category_product.length > 1 ? true : false">
             <div class="row text-center justify-center w-100pr fs-20px mt-50px">
                 <div class="text-blue w-5pr mr-15px"> ____ </div>
@@ -43,7 +43,7 @@ import Card from 'src/components/Card.vue';
 
   async function GetCategoryApi(){
     try {
-        const fetch_category_id= await axios.get('https://arzonuz.pythonanywhere.com/categoriya/'+id+'/');
+        const fetch_category_id= await axios.get('http://insofuzlast.pythonanywhere.com/categoriya/'+id+'/');
         category_id.value = fetch_category_id.data
         category_product.value = category_id.value.mahsulot
         console.log(category_id.value);
@@ -51,10 +51,10 @@ import Card from 'src/components/Card.vue';
     catch (err) {
         console.log(err);
     }
-  } 
+  }
   GetCategoryApi()
-  
+
 </script>
 <style lang="sass" scoped>
-    
+
 </style>

@@ -20,9 +20,9 @@ export const useCounterStore = defineStore('store', {
   actions:{
     async GET_PRODUCTS_API  () {
       try {
-        const Fetch_Product = await axios.get('https://arzonuz.pythonanywhere.com/productlar/')
+        const Fetch_Product = await axios.get('http://insofuzlast.pythonanywhere.com/productlar/')
         this.ProductsApi = Fetch_Product.data
-        const Fetch_Cartigoriya = await axios.get('https://arzonuz.pythonanywhere.com/categoriya/')
+        const Fetch_Cartigoriya = await axios.get('http://insofuzlast.pythonanywhere.com/categoriya/')
         this.CategoriyasApi = Fetch_Cartigoriya.data
         console.log(this.ProductsApi)
       }
@@ -39,7 +39,7 @@ export const useCounterStore = defineStore('store', {
           el.quantity++
         }
       })
-    
+
     },
     // maxsuloti qiymatini kamaytirish
     DECREMENT(id) {
@@ -71,21 +71,10 @@ export const useCounterStore = defineStore('store', {
 
         this.AllRebate+=this.Rebate
       })
-    },
-    // users malumotlarini olish
-    async GET_USERS_API  () {
-      try {
-        const Fetch_Users = await axios.get('https://arzonuz.pythonanywhere.com/user/')
-        this.UsersApi = Fetch_Users.data
-        console.log(this.UsersApi)
-      }
-      catch (err) {
-        console.log(err)
-      }
-    },
+    }
 
   },
-  
+
 })
 
 /*

@@ -43,7 +43,7 @@
         label=" Lakatsiya olish  "
         @click="getLocation()"
       />
-      
+
       <q-btn
         class="text-white bg-blue-grey-10 mt-30px"
         icon="send"
@@ -57,7 +57,6 @@
 </template>
 <script setup>
 import { ref } from "vue"
-import axios from "axios"
 import { useCounterStore } from "src/stores/index"
 const store = useCounterStore()
 const fname = ref("")
@@ -72,6 +71,10 @@ const longitude = ref("")
 const user_position = ref("")
 const disable_btn_send = ref(true)
 
+const d = new Date();
+let time = d.getTime();
+let time_string  = time.toString()
+let id
 function getLocation() {
   try {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -90,48 +93,28 @@ function getLocation() {
 }
 // foydalanuvchi malumotlarini jo'natish
 function sendUserInfo() {
-  fetch("https://arzonuz.pythonanywhere.com/user/", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      userName: fname.value,
-      phoneNumber: tel_number.value,
-      address: adress.value,
-      comment: comment.value,
-      location: user_position.value,
-    }),
-  })
+  let random = Math.floor(Math.random() * 90) + 10 ;
+  id = time_string.slice(7) + random
+  console.log(id);
+  // fetch("http://insofuzlast.pythonanywhere.com/user/", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({
+  //     id: id,
+  //     userName: fname.value,
+  //     phoneNumber: tel_number.value,
+  //     address: adress.value,
+  //     comment: comment.value,
+  //     location: user_position.value,
+  //   }),
+  // })
 }
-// foydalanuvchi malumotlarini qaytib olish
-const users = ref([])
-async function getApiUser() {
-  try {
-    const fetch_users = await axios.get("https://arzonuz.pythonanywhere.com/user/")
-    users.value = fetch_users.data
-    console.log(users.value)
-    users.value.reverse()
 
-  } catch (err) {
-    console.log(err)
-  }
-}
-getApiUser()
-// foydalanuvchi idsini aniqlash
-const user_id = ref()
-function ChectUserId() {
-  users.value.forEach(el => {
-    if ( el.userName == fname.value && el.phoneNumber == tel_number.value && el.location == user_position.value ) {
-      user_id.value = el.id
-      console.log("sizning id raqamingiz maxmud tog'o':" + user_id.value)
-    }
-    console.log("salom");
-  });     
-}
 // maxsulotlarni jo'natish
 function sendOrders(){
   store.Orders.forEach(el => {
     if(el.kilogramm>0){
-      fetch("https://arzonuz.pythonanywhere.com/orders/", {
+      fetch("http://insofuzlast.pythonanywhere.com/orders/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -145,7 +128,7 @@ function sendOrders(){
       console.log("klagram");
     }
     else if(el.litri>0){
-      fetch("https://arzonuz.pythonanywhere.com/orders/", {
+      fetch("http://insofuzlast.pythonanywhere.com/orders/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -160,7 +143,7 @@ function sendOrders(){
       console.log("ichimlik");
     }
     else{
-      fetch("https://arzonuz.pythonanywhere.com/orders/", {
+      fetch("http://insofuzlast.pythonanywhere.com/orders/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -178,21 +161,10 @@ function sendOrders(){
 
 async function send() {
   sendUserInfo()
-  setTimeout(() => {
-    getApiUser()
-  }, 300);
-  let chect_user_id = setInterval(() => {
-    if (users.value.length>0) {
-      ChectUserId()
-      clearInterval(chect_user_id)
-    }
-  }, 310 );
-  let set_order = setInterval(() => {
-    if (user_id.value>0) {
-      sendOrders()
-      clearInterval(set_order)
-    }
-  }, 320);
+
+  // setTimeout(() => {
+  //   sendOrders()
+  // }, 500);
 
 }
 </script>
